@@ -18,7 +18,7 @@ class SmoothPageDots extends StatelessWidget {
           spacing:  8.0,
           strokeWidth:  2,
           dotColor:  Colors.grey,
-          activeDotColor:  Colors.purple
+          activeDotColor:  Colors.blue
       ),
     );
   }

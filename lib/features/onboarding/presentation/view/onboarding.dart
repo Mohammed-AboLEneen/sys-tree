@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:systree/features/onboarding/presentation/view/widgets/custom_button.dart';
 import 'package:systree/features/onboarding/presentation/view/widgets/custom_pageview.dart';
 import 'package:systree/features/onboarding/presentation/view/widgets/smooth_page_dots.dart';
 
 import '../../../../cores/utils/images.dart';
+import '../../../../cores/utils/routers.dart';
 
 
 class OnBoardingPage extends StatefulWidget {
@@ -18,17 +20,13 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   late PageController pageController;
   double progress = 0;
+  String actionAppBarTitle = 'Skip';
 
   @override
   void initState() {
     super.initState();
 
-    pageController = PageController()
-      ..addListener(() {
-        setState(() {
-          progress = pageController.page ?? 0;
-        });
-      });
+    listenPageController();
   }
 
   @override
@@ -42,9 +40,21 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           TextButton(
               onPressed: (){
 
-                pageController.animateToPage(3, duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+                if(progress == 2.0){
+                  context.push(RoutersCLass.loginPage);
+                }else{
+
+                  Future.delayed(const Duration(milliseconds: 400), () {
+                    actionAppBarTitle = 'Get Started';
+                    setState(() {
+
+                    });
+                  });
+                  pageController.animateToPage(3, duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+
+                }
               },
-              child: Text('Skip', style: TextStyle(fontSize: 20.sp),)
+              child: Text(actionAppBarTitle, style: TextStyle(fontSize: 20.sp),)
           )
         ],
       ),
@@ -108,4 +118,24 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       ),
     );
   }
+
+  void listenPageController(){
+
+    pageController = PageController()
+      ..addListener(() {
+
+        setState(() {
+          progress = pageController.page ?? 0;
+        });
+
+        if(progress >= 1.7){
+          actionAppBarTitle = 'Get Started';
+        }else{
+          actionAppBarTitle = 'Skip';
+        }
+      }
+
+      );
+  }
 }
+

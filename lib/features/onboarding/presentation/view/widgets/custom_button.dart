@@ -26,9 +26,10 @@ class CustomIcon extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             gradient: const LinearGradient(
-              colors: [Colors.purple, Colors.blue], // Define your gradient colors
+              colors: [Colors.blue, Colors.purple], // Define your gradient colors
               begin: Alignment.topLeft, // Set the start point of the gradient
               end: Alignment.bottomRight, // Set the end point of the gradient
+              stops: [0, .8]
             ),
             borderRadius: BorderRadius.circular(20),
           ),

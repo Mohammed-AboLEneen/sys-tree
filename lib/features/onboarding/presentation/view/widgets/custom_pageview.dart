@@ -25,7 +25,7 @@ class CustomPageView extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .32,
               child: CircleAvatar(
 
-                backgroundColor: Colors.purple,
+                backgroundColor: Colors.blue,
                 child: SvgPicture.asset(
                   imageUrl,
                   height: MediaQuery.of(context).size.height * .32,
