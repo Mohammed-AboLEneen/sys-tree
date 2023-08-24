@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'customclipper.dart';
+import 'top_customclipper.dart';
 
 class MyPainter extends CustomPainter {
 

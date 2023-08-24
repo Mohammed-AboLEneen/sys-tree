@@ -4,9 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:systree/cores/utils/images.dart';
 
-import 'custom_painter.dart';
+import 'buttom_customclipper.dart';
+import 'top_custom_painter.dart';
 import 'custom_textformfield.dart';
-import 'customclipper.dart';
+import 'top_customclipper.dart';
 
 class LoginPageBody extends StatefulWidget {
   const LoginPageBody({super.key});
@@ -37,7 +38,7 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                     child: Stack(
                       children: [
                         ClipPath(
-                          clipper: MyCustomClipper(),
+                          clipper: TopCustomClipper(),
                           child: Container(
                             decoration: const BoxDecoration(
                                 gradient: LinearGradient(
@@ -152,30 +153,4 @@ class _LoginPageBodyState extends State<LoginPageBody> {
   }
 }
 
-class BottomCustomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
 
-    double w = size.width;
-    double h = size.height;
-
-    path.moveTo(0, h);
-    path.quadraticBezierTo(w * .05, h * .4, w * .18, 0);
-    path.quadraticBezierTo(w * .5, h * .25, w * .85, 0);
-    path.quadraticBezierTo(w * .95, h * .4, w, h);
-    path = getPathValues(path, size);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
-}
-
-Path getPathValues(Path path, Size size) {
-  double w = size.width;
-  double h = size.height;
-
-  return path;
-}
