@@ -14,6 +14,7 @@ class HomePageProvider with ChangeNotifier {
     Colors.orangeAccent,
     Colors.orangeAccent,
   ];
+
   List<IconData> icons = [
     Icons.directions,
     Icons.work,
@@ -22,6 +23,7 @@ class HomePageProvider with ChangeNotifier {
     Icons.soap_sharp,
     Icons.error_outlined,
   ];
+
   List<String> texts = [
     'directions',
     'employees',
@@ -30,6 +32,7 @@ class HomePageProvider with ChangeNotifier {
     'installations',
     'Malfunctions',
   ];
+
   late List<HomePageItem> items;
 
   void fetchHomeItems(){

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:systree/cores/utils/routers.dart';
@@ -26,6 +27,14 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           textTheme: GoogleFonts.abelTextTheme(),
           useMaterial3: true,
+          appBarTheme: AppBarTheme(
+
+              systemOverlayStyle: SystemUiOverlayStyle(
+                systemNavigationBarColor: Colors.blue.withOpacity(.2), // Navigation bar
+                statusBarColor:  Colors.blue.withOpacity(.3), // Status bar
+                  statusBarIconBrightness: Brightness.dark
+              ),
+          )
         ),
         routerConfig: RoutersCLass.router,
         debugShowCheckedModeBanner: false,

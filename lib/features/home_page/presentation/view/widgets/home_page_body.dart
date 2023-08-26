@@ -8,8 +8,6 @@ class HomePageBody extends StatelessWidget {
     return const Scaffold(
 
      drawer: Drawer(
-
-
      ),
     );
   }

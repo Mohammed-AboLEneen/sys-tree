@@ -42,10 +42,10 @@ class _HomePageItemState extends State<HomePageItem> {
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
                 height: widget.isExpanded
-                    ? MediaQuery.of(context).size.height * .2
+                    ? MediaQuery.of(context).size.height * .19
                     : MediaQuery.of(context).size.height * .18,
                 width: widget.isExpanded
-                    ? MediaQuery.of(context).size.width * .4
+                    ? MediaQuery.of(context).size.width * .37
                     : MediaQuery.of(context).size.width * .37,
                 child: Card(
                   color: Colors.white,
@@ -70,10 +70,10 @@ class _HomePageItemState extends State<HomePageItem> {
               bottom: MediaQuery.of(context).size.height * .11,
               child: AnimatedContainer(
                 height: widget.isExpanded
-                    ? MediaQuery.of(context).size.width * .25
+                    ? MediaQuery.of(context).size.width * .23
                     : MediaQuery.of(context).size.width * .22,
                 width: widget.isExpanded
-                    ? MediaQuery.of(context).size.width * .25
+                    ? MediaQuery.of(context).size.width * .23
                     : MediaQuery.of(context).size.width * .22,
                 decoration: BoxDecoration(
                     color: widget.color, borderRadius: BorderRadius.circular(20)),

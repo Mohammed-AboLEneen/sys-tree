@@ -22,6 +22,7 @@ class _LoginPageBodyState extends State<LoginPageBody>
     with SingleTickerProviderStateMixin {
   final TextEditingController emailController = TextEditingController(text: 'mohmedhty@gmail.com');
   final TextEditingController passwordController = TextEditingController(text: '123456');
+  final TextEditingController codeController = TextEditingController(text: 'hy3dac');
 
   late AnimationController animationController;
   late Animation<double> opacityAnimation;
@@ -63,7 +64,7 @@ class _LoginPageBodyState extends State<LoginPageBody>
                           child: Column(
                             children: [
                               SizedBox(
-                                height: MediaQuery.of(context).size.height * .4,
+                                height: MediaQuery.of(context).size.height * .35,
                                 child: Stack(
                                   children: [
                                     ClipPath(
@@ -106,7 +107,7 @@ class _LoginPageBodyState extends State<LoginPageBody>
                               ),
                               SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height * .04,
+                                    MediaQuery.of(context).size.height * .02,
                               ),
                               Text(
                                 'Sign In',
@@ -117,7 +118,7 @@ class _LoginPageBodyState extends State<LoginPageBody>
                               ),
                               SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height * .04,
+                                    MediaQuery.of(context).size.height * .02,
                               ),
                               CustomTextField(
                                 controller: emailController,
@@ -138,33 +139,59 @@ class _LoginPageBodyState extends State<LoginPageBody>
                                 padding: EdgeInsets.all(
                                     MediaQuery.of(context).size.height * .02),
                               ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * .04,
+                              const SizedBox(
+                                height: 10,
                               ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  if (formKey.currentState!.validate()) {
-                                    context.push(RoutersCLass.homePage);
-                                  } else {
-                                    autoValidateMode = AutovalidateMode.always;
-                                    setState(() {
+                              CustomTextField(
+                                controller: codeController,
+                                h: MediaQuery.of(context).size.height * .09,
+                                hint: 'code',
+                                lable: 'Code',
+                                padding: EdgeInsets.all(
+                                    MediaQuery.of(context).size.height * .02),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
 
-                                    });
-                                  }
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blue.withOpacity(.5),
-                                ),
-                                child: Text(
-                                  'Login',
-                                  style: GoogleFonts.aBeeZee(
-                                      color: Colors.white.withOpacity(.7),
-                                      fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              .03),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * .3,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    if (formKey.currentState!.validate()) {
+                                      context.push(RoutersCLass.homePage);
+                                    } else {
+                                      autoValidateMode = AutovalidateMode.always;
+                                      setState(() {
+
+                                      });
+                                    }
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blue.withOpacity(.5),
+                                  ),
+                                  child: Text(
+                                    'Login',
+                                    style: GoogleFonts.aBeeZee(
+                                        color: Colors.white.withOpacity(.7),
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                .03),
+                                  ),
                                 ),
                               ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+
+                              const Row(
+
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+
+                                  Text('Don\'t Have An Account? '),
+                                  Text('Create Now', style: TextStyle(fontSize: 15, color: Colors.blue),),
+                              ],),
                               const Spacer(),
                               SizedBox(
                                   height:
