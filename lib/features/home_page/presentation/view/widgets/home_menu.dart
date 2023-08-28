@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../home_page/presentation/view/widgets/information_card.dart';
-import '../../../../home_page/presentation/view/widgets/menu_listview.dart';
-import '../../../../home_page/presentation/view_model/menu_provider/menu_provider.dart';
+import 'information_card.dart';
+import 'menu_listview.dart';
+import '../../view_model/menu_provider/menu_provider.dart';
 
 class HomeMenu extends StatelessWidget {
   const HomeMenu({super.key});
