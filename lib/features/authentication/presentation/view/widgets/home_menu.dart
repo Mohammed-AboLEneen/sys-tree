@@ -1,0 +1,71 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../home_page/presentation/view/widgets/information_card.dart';
+import '../../../../home_page/presentation/view/widgets/menu_listview.dart';
+import '../../../../home_page/presentation/view_model/menu_provider/menu_provider.dart';
+
+class HomeMenu extends StatelessWidget {
+  const HomeMenu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+
+      create: (context) => MenuProvider(),
+      child: Consumer<MenuProvider>(
+
+        builder: (_,model,__){
+
+          return Drawer(
+
+            width: MediaQuery.of(context).size.width * .7,
+            child: Container(
+              width: MediaQuery.of(context).size.width * .6,
+              color: const Color(0xff171D33),
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    const InfoCard(),
+                    const SizedBox(
+                      height: 15,
+                    ),
+
+                    const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Browse',
+                          style: TextStyle(fontSize: 25, color: Colors.white),
+                        )),
+
+                    MenuListView(
+
+                      titles: model.listTitles1,
+                      icons: model.listIcons1,
+
+                      h: MediaQuery.of(context).size.height * .5,
+                    ),
+                    const Align(
+                        alignment: Alignment.center,
+                        child: Text('History',
+                            style: TextStyle(
+                                fontSize: 25, color: Colors.white))),
+
+                    MenuListView(
+
+                      titles: model.listTitles2,
+                      icons: model.listIcons2,
+
+                      h: MediaQuery.of(context).size.height * .2,
+                    )
+
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
